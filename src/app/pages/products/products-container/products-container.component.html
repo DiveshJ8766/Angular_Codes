@@ -1,0 +1,14 @@
+<div class="p-2">
+    <div class="col-7 p-3">
+        <app-search (searchTextEvent)="onsearchTextChanged($event)"></app-search>
+      </div>
+      <div>
+        <app-filter [all]="totalProduct" [instock]="instockProduct"  (selectedOptionChanged)="filteredOption($event)" [notInstock]="notInstockProduct"></app-filter>
+      </div>
+    <div class="d-flex flex-wrap ">
+        <div *ngFor="let product of data" >
+          <!-- (selectedOption === 'all' || (selectedOption === 'notinstock' && (product.rating.count <= 0) ) || (selectedOption === 'instock' &&( product.rating.count > 0))) -->
+        <app-product-list   [product]="product" *ngIf="product.category.toLowerCase().includes(searchText.toLowerCase()) "></app-product-list>
+        </div>
+    </div>
+</div>

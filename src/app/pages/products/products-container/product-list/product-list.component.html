@@ -1,0 +1,40 @@
+
+<div class="m-3">
+  <div class="card mb-3 p-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md">
+          <img [src]="product.image"  class="img-fluid rounded-start" alt="Iphone image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">Title : {{ product.title | slice:0:28 }} {{product.title.length > 28? '...' : '' }}</p>
+            <p class="card-text">Price : {{ '₹' + product.price }}</p>
+            <p class="card-text">category : {{ product.category }}</p>
+            <p class="card-text">Description : {{ product.description  | slice:0:50 }} {{product.description.length > 50 ? '...' : '' }}</p>
+
+             <!-- <p class="card-text">Discount : {{ product.price - (product.price * product.discount_price /100) }}</p>
+            <p class="card-text">Discount : {{ getDiscountedPrice().toFixed(1) }}</p> -->
+
+            <p class="badge card-text bg-primary" *ngIf="product.rating.count > 0">
+              Only {{ product.rating.count }} items available
+            </p>
+            
+            <p class="badge card-text bg-danger" *ngIf="product.rating.count === 0">
+              Product Not Available
+            </p>
+            <br>
+            <button class="btn btn-primary btn-sm" (click)="onDecrement()" [disabled]="!(addToCart > 0)"><i class="fa-solid fa-minus"></i></button>
+            <span class="card-title p-3">{{ addToCart }}</span>
+            <button class="btn btn-primary btn-sm" (click)="onIncrement()" [disabled]="!(addToCart < product.rating.count)"><i class="fa-solid fa-plus"></i></button>
+            <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openOffcanvas(content)">Right position</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>
+
+
+<ng-template #content let-offcanvas class="modal-dialog1">
+	<app-modal [title]="title"></app-modal>
+</ng-template>

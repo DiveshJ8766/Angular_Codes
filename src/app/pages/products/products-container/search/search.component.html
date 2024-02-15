@@ -1,0 +1,39 @@
+<div class="mb-3">
+  <label for="searchProduct" class="form-label">Search Product</label>
+  <div class="d-flex">
+    <!--? This searchs as we types  -->
+    <!-- <input type="text" [ngClass]="{'form-control':true,'input-text':searchProduct}" id="searchProduct" placeholder="Enter Product Name...."
+        [(ngModel)]="searchProduct" (input)="onSearchChange()"> -->
+
+
+    <input
+      type="text"
+      [ngClass]="{ 'form-control': true, 'input-text': searchProduct }"
+      id="searchProduct"
+      placeholder="Enter Product Name...."
+      #serachValue
+    />
+
+    <button
+      [ngClass]="{ btn: true, 'btn-secondary': true }"
+      class="mx-3"
+      type="button"
+     
+      (click)="onSearchChange(serachValue)" 
+    >
+      click me
+    </button>
+
+    <!--  [disabled]="!searchProduct" -->
+  </div>
+  <!-- <input type="text" class="form-control" id="searchProduct" placeholder="Enter Product Name...."
+        [value]="searchProduct" (input)="onSearchChange($event)"> -->
+</div>
+<div>
+  <p [hidden]="!searchProduct">
+    Searched product :
+    <span [ngClass]="{ 'input-text': searchProduct }">
+      {{ searchProduct }}</span
+    >
+  </p>
+</div>

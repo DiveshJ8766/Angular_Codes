@@ -1,0 +1,21 @@
+<div class="d-flex">
+    <span class="m-2">Filter By : </span>
+    <div class="form-check m-2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="all" value="all" [(ngModel)]="selectedOption" (change)="onselectedOption()">
+        <label class="form-check-label" for="all">
+          {{'All (' + all + ')'}}
+        </label>
+      </div>
+      <div class="form-check m-2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="instock" value="instock" [(ngModel)]="selectedOption" (change)="onselectedOption()">
+        <label class="form-check-label" for="instock">
+          {{'Instock (' + instock + ')'}}
+        </label>
+      </div>
+      <div class="form-check m-2">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="notinstock" value="notinstock" [(ngModel)]="selectedOption" (change)="onselectedOption()">
+        <label class="form-check-label" for="notinstock">
+          {{'Not Instock (' + notInstock + ')'}}
+        </label>
+      </div>
+</div>
